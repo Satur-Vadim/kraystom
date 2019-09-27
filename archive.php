@@ -21,7 +21,9 @@ get_header();
             Подпишитесь, чтобы не пропустить самое интересное.
           </div>
         </div>
-        <div class="posts-beforecontent__form"></div>
+        <div class="posts-beforecontent__form">
+          <?php echo do_shortcode('[contact-form-7 id="98" title="Контакты_copy"]') ?>
+        </div>
       </div>
       <div class="posts-container">
       <?php
@@ -45,11 +47,27 @@ get_header();
         the_posts_pagination();
         wp_reset_query(); ?>  
         </div>
+        <div class="advertising">
+        <div class="advertising__title">Сервис подбора строительных услуг KRAYSTOM</div>
+        <div class="advertising__text">Бесплатно, без комиссии и скрытых платежей</div>
+      </div>
+    </div>
+    <div class="col-12">
+      <?php echo do_shortcode('[recent_products per_page="3" columns="3"]'); ?> 
     </div>
 	</div>
 </div>
-		
-
+<div id="seo-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p>Вы находитесь на сервисе KRAYSTOM. Все лучшие компании Томска в одном месте. </p>
+        <p>Здесь Вам помогут подобрать нужный проект и надежного проверенного исполнителя полностью бесплатно. Без скрытых платежей и звездочек. По цене застройщика, без наценок. Больше ненужно перелопачивать горы информации в поисках надежного исполнителя  и лучшей цены. 
+        Позвоните в Крайстом сейчас.</p>
+      </div>
+    </div>
+  </div>
+</div>
 <?php
 
 get_footer();?>
@@ -120,5 +138,12 @@ $('.postform').each(function() {
   });
 });
   $(".select").after("<div class='widget-btn'><button class='btn' type='submit'>Показать статьи</button></div>");
+})( jQuery );
+</script>
+<script>
+( function( $ ) {
+  $(document).ready(function() { 
+  $('.posts-container .post-item').eq(3).after($('.advertising'));
+  });
 })( jQuery );
 </script>

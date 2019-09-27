@@ -20,7 +20,9 @@ get_header();
 						Подпишитесь, чтобы не пропустить самое интересное.
 					</div>
 				</div>
-				<div class="posts-beforecontent__form"></div>
+				<div class="posts-beforecontent__form">
+					<?php echo do_shortcode('[contact-form-7 id="98" title="Контакты_copy"]') ?>
+				</div>
 			</div>
 			<div class="posts-container">
 			<?php
@@ -55,6 +57,10 @@ get_header();
      		the_posts_pagination($pag);
      		wp_reset_query(); ?>	
    			</div>
+   			<div class="advertising">
+				<div class="advertising__title">Сервис подбора строительных услуг KRAYSTOM</div>
+				<div class="advertising__text">Бесплатно, без комиссии и скрытых платежей</div>
+			</div>
 		</div>
 		<div class="col-12">
 			<?php echo do_shortcode('[recent_products per_page="3" columns="3"]'); ?>	
@@ -141,5 +147,13 @@ $('.postform').each(function() {
   });
 });
 	$(".select").after("<div class='widget-btn'><button class='btn' type='submit'>Показать статьи</button></div>");
+})( jQuery );
+</script>
+
+<script>
+( function( $ ) {
+	$(document).ready(function() { 
+	$('.posts-container .post-item').eq(3).after($('.advertising'));
+	});
 })( jQuery );
 </script>

@@ -1607,7 +1607,7 @@ background: url(./img/images/article-1533821359.png),
 	padding: 15px 50px;
 	width: 100%;
 }
-.cf-intup__button input{
+.contact-block .cf-intup__button input{
 	border:0;
 	border-radius: 4px;
 	background-color: rgb(182, 154, 104);
@@ -1618,15 +1618,15 @@ background: url(./img/images/article-1533821359.png),
 	text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 	padding: 10px 0;
 }
-.cf-intup__our-name{
+.contact-block .cf-intup__our-name{
 	margin-bottom: 25px;
 	position: relative;
 }
-.cf-intup__our-email{
+.contact-block .cf-intup__our-email{
 	margin-bottom: 50px;
 	position: relative;
 }
-.cf-intup__our-name .fas, .cf-intup__our-email .fas{
+.contact-block .cf-intup__our-name .fas, .cf-intup__our-email .fas{
 	position: absolute;
 	font-size: 20px;
 	color: #B69A68;
@@ -1803,4 +1803,57 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing{
 	padding-right: 15px;
 	transition: .1s all;
 }
-
+.posts-beforecontent__form .wpcf7-form .wpcf7-form-control {
+    outline: none;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid #B69A68;
+    padding: 10px 20px;
+    width: 300px;
+}
+.posts-beforecontent__form{
+	padding-left: 93px;
+	margin-bottom: 60px;
+}
+.posts-beforecontent__form .wpcf7-form{
+	display: flex;
+	justify-content: space-between;
+}
+.posts-beforecontent__form .wpcf7-form .wpcf7-submit{
+	border: 0;
+    border-radius: 4px;
+    background-color: rgb(182, 154, 104);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.6);
+    width: auto;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    padding: 13px 30px;
+    float: right;
+}
+.posts-beforecontent__form .cf-intup__our-name .fas, .cf-intup__our-email .fas{
+	position: absolute;
+	font-size: 20px;
+	color: #B69A68;
+	top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+}
+.posts-beforecontent__form .cf-intup__our-email{
+	position: relative;
+}
+.advertising__title{
+	color: #b69a68;
+	font-size: 35px;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 900;
+}
+.advertising__text{
+	text-align: center;
+	font-size: 28px;
+}
+.advertising{
+	padding-top: 30px;
+	padding-bottom: 50px;
+}
