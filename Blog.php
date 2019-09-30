@@ -10,11 +10,13 @@ get_header();
 ?>
 <div class="container">
 	<div class="row posts-page">
-		<div class="col-lg-3 post-sidebar"><?php echo get_sidebar(); ?></div>
+		<div class="col-lg-3 post-sidebar">
+      <?php echo get_sidebar(); ?>
+      </div>
 		<div class="col-lg-8 post-content">
 			<div class="posts-beforecontent">
 				<div class="posts-beforecontent__title">
-					<div class="posts-beforecontent__title-icon"><i class="fal fa-paper-plane"></i></div>
+					<div class="posts-beforecontent__title-icon"><img src="<?php echo get_template_directory_uri()?>/img/icons/plane.png" alt=""></div>
 					<div class="posts-beforecontent__title-text">
 						Сервис быстро растет. Постоянно появляются новые обзоры и проекты.<br>
 						Подпишитесь, чтобы не пропустить самое интересное.
@@ -28,7 +30,7 @@ get_header();
 			<?php
 			global $wp_query;
 			$wp_query = new WP_Query(array(
-				'posts_per_page' => '8',
+				'posts_per_page' => '3',
 				'paged' => get_query_var('paged') ?: 1 // страница пагинации
 			));
 
@@ -52,7 +54,7 @@ get_header();
      		$pag = array(
      			'end_size'     => 3,
      			'prev_text'    => '<i class="far fa-chevron-left"></i>',
-				'next_text'    => '<i class="far fa-chevron-right"></i>',
+				  'next_text'    => '<i class="far fa-chevron-right"></i>',
      		);
      		the_posts_pagination($pag);
      		wp_reset_query(); ?>	
@@ -156,4 +158,75 @@ $('.postform').each(function() {
 	$('.posts-container .post-item').eq(3).after($('.advertising'));
 	});
 })( jQuery );
+</script>
+
+<script>
+( function( $ ) {
+  $(document).ready(function() { 
+    $('.product_list_widget li').each(function(){
+      var price = $(this).children('.woocommerce-Price-amount').text();
+      price = price.slice(0, -1);
+      $(this).children('.woocommerce-Price-amount').text('Цена от ' + price + ' тис. руб');
+    });
+  });
+})( jQuery );
+</script>
+
+<script>
+( function( $ ) {
+  $(document).ready(function() {
+    $( ".product_list_widget li a img" ).wrap( "<div class='bestseller'></div>" );
+    $( ".bestseller" ).append('<img class="bestseller-img" src="<?php echo get_template_directory_uri()?>/img/images/bestseller.png">')
+  });
+})( jQuery );
+</script>
+
+<script>
+( function( $ ) {
+  $(document).ready(function(){  
+    $('.post-content').on('click', '.nav-links .page-numbers', function(event){      
+      console.log('sss');
+      event.preventDefault();
+      var url = $(this).attr('data-url')    
+      $.ajax({
+        url: url,
+        type: "GET",
+        success: function(res){
+        var posts = $(res);
+        posts = $(posts).find('.posts-container')
+        $('.posts-container').html(posts);
+        $('body,html').animate({scrollTop: 0}, 400);
+        data()
+        links();
+        }
+      });
+    });
+    data() 
+    links();
+  }); 
+})( jQuery );
+</script>
+
+<script defer>
+  function data(){
+    ( function( $ ) {
+      $('.nav-links .page-numbers').each(function(){
+        var link = $(this).attr('href');
+        $(this).attr('data-url', link);
+      });
+  })( jQuery );
+}
+
+</script>
+<script defer>
+function links(){
+  (function( $ ) {
+    $('.nav-links .page-numbers').attr('href','javascript:void(0)');
+  })( jQuery );
+}
+</script>
+<script>
+function ajax(){
+
+}
 </script>

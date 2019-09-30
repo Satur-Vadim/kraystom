@@ -73,9 +73,9 @@
 						<?php $posts = get_posts ("orderby=date&numberposts=4"); ?> 
 						<?php if ($posts) : ?>
 						<div class="interesting__list">
-							<ul>
+							<ul class="interesting__list-ul">
 								<?php foreach ($posts as $post) : setup_postdata ($post); ?>
-								<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+								<li class="interesting__list-li"><a class="interesting__list-a" href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
 								<?php endforeach; ?> <?php endif; ?>
 							</ul>
 						</div>

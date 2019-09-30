@@ -74,7 +74,7 @@ get_footer();?>
 <script>
   ( function( $ ) {
     $(document).ready(function(){
-    $('.select__item').eq(0).children().text('Все темы');
+    $('.select__item').eq(0).remove();
     });
   })( jQuery );
 </script>
@@ -85,14 +85,13 @@ $('.postform').each(function() {
     selectOption = $this.find('option'),
     selectOptionLength = selectOption.length,
     selectedOption = selectOption.filter(':selected'),
-    selected = $("#cat :selected").text();
     dur = 500;
 
   $this.hide();
   $this.wrap('<div class="select"></div>');
   $('<div>', {
     class: 'select__gap',
-    text: selected
+    text: selectOption.eq(0).text()
   }).insertAfter($this);
 
   var selectGap = $this.next('.select__gap'),
@@ -140,10 +139,53 @@ $('.postform').each(function() {
   $(".select").after("<div class='widget-btn'><button class='btn' type='submit'>Показать статьи</button></div>");
 })( jQuery );
 </script>
+
 <script>
 ( function( $ ) {
   $(document).ready(function() { 
   $('.posts-container .post-item').eq(3).after($('.advertising'));
   });
+})( jQuery );
+</script>
+
+<script>
+( function( $ ) {
+  $(document).ready(function() { 
+    $('.product_list_widget li').each(function(){
+      var price = $(this).children('.woocommerce-Price-amount').text();
+      price = price.slice(0, -1);
+      $(this).children('.woocommerce-Price-amount').text('Цена от ' + price + ' тис. руб');
+    });
+  });
+})( jQuery );
+</script>
+
+<script>
+( function( $ ) {
+  $(document).ready(function() {
+    $( ".product_list_widget li a img" ).wrap( "<div class='bestseller'></div>" );
+    $( ".bestseller" ).append('<img class="bestseller-img" src="<?php echo get_template_directory_uri()?>/img/images/bestseller.png">')
+  });
+})( jQuery );
+</script>
+
+<script>
+( function( $ ) {
+  $(document).ready(function(){        
+    $('.nav-links .page-numbers').click(function(event){
+      event.preventDefault();
+      var url = $(this).attr('href')    
+      $.ajax({
+        url: url,
+        type: "GET",
+        success: function(res){
+        var posts = $(res);
+        posts = $(posts).find('.posts-container')
+        $('.posts-container').html(posts);
+        $('body,html').animate({scrollTop: 0}, 400);
+        }
+      });
+    });            
+  }); 
 })( jQuery );
 </script>

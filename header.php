@@ -30,7 +30,7 @@
 							<?php the_custom_logo();	?>
 						</div>
 						<div class="number">
-							<i class="fas fa-phone color-b69a68"></i><span class="color-b69a68 font-weight-bold">8 (3822) </span><span>979622</span>
+							<i class="fas fa-phone color-b69a68"></i><div class="header-number"><span class="color-b69a68 font-weight-bold">8 (3822) </span><span>979622</span></div>
 						</div>
 					</div>
 					<div class="col-lg-9 nav-block">
