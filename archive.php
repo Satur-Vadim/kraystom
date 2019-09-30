@@ -15,7 +15,7 @@ get_header();
 		<div class="col-lg-8 post-content">
       <div class="posts-beforecontent">
         <div class="posts-beforecontent__title">
-          <div class="posts-beforecontent__title-icon"><i class="fal fa-paper-plane"></i></div>
+          <div class="posts-beforecontent__title-icon"><img src="<?php echo get_template_directory_uri()?>/img/icons/plane.png" alt=""></div>
           <div class="posts-beforecontent__title-text">
             Сервис быстро растет. Постоянно появляются новые обзоры и проекты.<br>
             Подпишитесь, чтобы не пропустить самое интересное.
@@ -44,7 +44,12 @@ get_header();
           </div>
       </div>
         <?php };
-        the_posts_pagination();
+        $pag = array(
+          'end_size'     => 3,
+          'prev_text'    => '<i class="far fa-chevron-left"></i>',
+          'next_text'    => '<i class="far fa-chevron-right"></i>',
+        );
+        the_posts_pagination($pag);
         wp_reset_query(); ?>  
         </div>
         <div class="advertising">
@@ -171,10 +176,11 @@ $('.postform').each(function() {
 
 <script>
 ( function( $ ) {
-  $(document).ready(function(){        
-    $('.nav-links .page-numbers').click(function(event){
+  $(document).ready(function(){  
+    $('.post-content').on('click', '.nav-links .page-numbers', function(event){      
+      console.log('sss');
       event.preventDefault();
-      var url = $(this).attr('href')    
+      var url = $(this).attr('data-url')    
       $.ajax({
         url: url,
         type: "GET",
@@ -183,9 +189,32 @@ $('.postform').each(function() {
         posts = $(posts).find('.posts-container')
         $('.posts-container').html(posts);
         $('body,html').animate({scrollTop: 0}, 400);
+        data()
+        links();
         }
       });
-    });            
+    });
+    data() 
+    links();
   }); 
 })( jQuery );
+</script>
+
+<script defer>
+  function data(){
+    ( function( $ ) {
+      $('.nav-links .page-numbers').each(function(){
+        var link = $(this).attr('href');
+        $(this).attr('data-url', link);
+      });
+  })( jQuery );
+}
+
+</script>
+<script defer>
+function links(){
+  (function( $ ) {
+    $('.nav-links .page-numbers').attr('href','javascript:void(0)');
+  })( jQuery );
+}
 </script>

@@ -59,17 +59,33 @@ function kraystom_register_required_plugins() {
 	 */
 	$plugins = array(
 
-		// This is an example of how to include a plugin bundled with a theme.
-		array(
+	array(
         'name'      => 'Contact Form 7',
         'slug'      => 'contact-form-7',
-        'required'  => false, // this plugin is recommended
+        'required'  => true, 
     ),
     array(
         'name'      => 'Easy FancyBox',
         'slug'      => 'easy-fancybox',
-        'required'  => true, // this plugin is recommended
-    )
+        'required'  => true,
+    ),
+    array(
+        'name'      => 'YITH WooCommerce Badge Management',
+        'slug'      => 'yith-woocommerce-badges-management',
+        'required'  => false, 
+    ),
+    array(
+        'name'      => 'WooCommerce',
+        'slug'      => 'woocommerce',
+        'required'  => true, 
+    ),
+    array(
+		'name'         => 'Font Awesome Pro and bootstrap',
+		'slug'         => 'fontandboots-master',
+		'source'       => 'https://github.com/Satur-Vadim/fontandboots/archive/master.zip',
+		'required'     => true, 
+		'external_url' => 'https://github.com/Satur-Vadim/fontandboots/archive/master.zip', 
+		),
 	);
 
 	/*

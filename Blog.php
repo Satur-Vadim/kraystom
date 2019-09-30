@@ -10,9 +10,7 @@ get_header();
 ?>
 <div class="container">
 	<div class="row posts-page">
-		<div class="col-lg-3 post-sidebar">
-      <?php echo get_sidebar(); ?>
-      </div>
+		<div class="col-lg-3 post-sidebar"><?php echo get_sidebar(); ?></div>
 		<div class="col-lg-8 post-content">
 			<div class="posts-beforecontent">
 				<div class="posts-beforecontent__title">
@@ -30,7 +28,7 @@ get_header();
 			<?php
 			global $wp_query;
 			$wp_query = new WP_Query(array(
-				'posts_per_page' => '3',
+				'posts_per_page' => '8',
 				'paged' => get_query_var('paged') ?: 1 // страница пагинации
 			));
 
@@ -59,7 +57,7 @@ get_header();
      		the_posts_pagination($pag);
      		wp_reset_query(); ?>	
    			</div>
-   			<div class="advertising">
+   		<div class="advertising">
 				<div class="advertising__title">Сервис подбора строительных услуг KRAYSTOM</div>
 				<div class="advertising__text">Бесплатно, без комиссии и скрытых платежей</div>
 			</div>
@@ -223,10 +221,5 @@ function links(){
   (function( $ ) {
     $('.nav-links .page-numbers').attr('href','javascript:void(0)');
   })( jQuery );
-}
-</script>
-<script>
-function ajax(){
-
 }
 </script>
